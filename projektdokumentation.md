@@ -1,6 +1,6 @@
 # Projektdokumentation
 
-**Navn:** 
+**Navn:** Phong Le Duc
 
 **Hold:** WUxx
 
@@ -18,7 +18,12 @@
 -   JavaScript
 -   Webpack
 -	Jest
--   ...
+-   vite
+-   vitest
+-   node
+-   sass
+-   github
+
 
 ---
 
