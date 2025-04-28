@@ -1,0 +1,27 @@
+@use '../../style/variables' as var; 
+
+.button {
+    display: block;
+    margin-inline: auto;
+    padding-block: 1rem;
+    width: 80vw;
+    margin-block: 1rem;
+    border-radius: 40px;
+    border: 1px solid grey;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.05s ease;
+
+    &--green {
+        background-color: var.$buttonPrimaryBackgroundColor;
+        color: white;
+        border: none;
+        box-shadow: 0 5px 6px rgba(40, 167, 69, 0.5);
+
+        &:active {
+            box-shadow: none; // Remove shadow on press
+            transform: translateY(2px); // Optional: button presses down
+          }
+
+          }
+}

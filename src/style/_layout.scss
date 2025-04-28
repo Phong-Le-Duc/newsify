@@ -3,14 +3,20 @@
 
 
 body {
-    background-color: rgb(206, 161, 184);
    
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
         font-family: var.$headerFont;
     }
 
     p {
         font-family: var.$paragraphFont;
     }
-   
+
+}
+
+
+.grid {
+    display: grid;
 }

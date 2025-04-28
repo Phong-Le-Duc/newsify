@@ -1,8 +1,8 @@
 @use '/public/fonts/playfair/playfair_fontface.css';
 @use '/public/fonts/opensans/opensans_fontface.css';
 
-
+$buttonPrimaryBackgroundColor: green;
+$buttonSecondaryBackgroundColor: #ff0000;
 
 $headerFont: "Playfair Display", sans-serif;
-
 $paragraphFont: "Open Sans", Impact;

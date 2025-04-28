@@ -1,0 +1,11 @@
+// @use '../style/variables' as var; 
+
+
+.header {
+    display: flex;
+    
+    img {
+        width: 10rem;
+        height: 10rem;
+    }
+}

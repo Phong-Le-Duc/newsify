@@ -1,0 +1,162 @@
+.splash-logo-symbol {
+    width: 5rem;
+    display: block;
+    margin-top: 12rem;
+    margin-inline: auto;
+    transform: scale(0);
+    opacity: 0;
+    animation: growAndfadeIn 1s ease-out forwards;
+}
+
+@keyframes growAndfadeIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+;
+
+.splash-logo-name {
+    // display: block;
+    margin-top: 2rem;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: fadeIn .5s ease-out forwards;
+    animation-delay: .6s;
+}
+
+@keyframes fadeIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.splash.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+
+.onboarding {
+    opacity: 0;
+    animation: fadeInOnboarding 0.6s ease-out forwards;
+}
+
+@keyframes fadeInOnboarding {
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+// CAROUSEL START
+
+.onboarding {
+   
+}
+
+/* placeringen bestemmes her */
+.onboarding-carousel {
+         margin-top: 5rem;
+         position: relative;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.onboarding-carousel__slide {
+    position: absolute;
+       opacity: 0;
+    transition: opacity 500ms linear;
+
+}
+
+.onboarding-carousel__slide--visible {
+    opacity: 1;
+    transition: opacity 500ms linear;
+}
+
+.onboarding-carousel__slide__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} 
+
+.onboarding-carousel__prev,
+.onboarding-carousel__next {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    top: 50%;
+    background-color: hsla(0, 47%, 41%, 0.7);
+    font-size: 1.5rem;
+    opacity: 0%;
+    transition: all 250ms ease-in-out;
+}
+
+
+
+.onboarding-carousel__prev {
+    left: 0;
+}
+
+.onboarding-carousel__next {
+    right: 0;
+}
+
+
+
+.onboarding-carousel:hover .carousel__prev {
+    left: 2%;
+}
+
+.onboarding-carousel:hover .carousel__next {
+    right: 2%;
+}
+
+.onboarding-carousel:hover .carousel__prev,
+.onboarding-carousel:hover .carousel__next {
+    opacity: 100%;
+}
+
+
+
+.onboarding-carousel__dots {
+    position: absolute;
+    /*  collapser boksen */
+    left: 0;
+    bottom: 1rem;
+    width: 100%;
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.onboarding-carousel__dot {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: blue;
+    border-radius: 50%;
+    transition: background-color 300ms linear;
+    box-shadow: 0 0 0.5rem hsl(0 0% 0% / 70%);
+}
+
+.onboarding-carousel__dot--active {
+    background-color: rgb(160, 45, 45);
+    transition: background-color 300ms linear;
+}
+
+
+// CAROUSEL finish

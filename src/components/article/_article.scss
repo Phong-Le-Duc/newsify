@@ -1,0 +1,14 @@
+
+
+.article {
+    display: flex;
+    &__image {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 8px;
+    }
+
+    &__textcontainer {
+        margin-left: 1rem;
+    }
+}

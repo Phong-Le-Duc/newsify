@@ -1,0 +1,44 @@
+.category {
+    display: flex;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: .5rem;
+
+    &__bar {
+        width: 100%;
+        &:open {
+           .category__bar-content{
+            margin-block: 2rem;
+            .article{
+                margin-block: 2rem;
+            }
+           }
+            .arrow {
+                transform: rotate(90deg);
+              
+            }
+
+        }
+        summary {
+            display: flex;
+            flex-direction: row;
+
+            &::marker {
+                content: "";
+            }
+
+            .arrow {
+                width: .5rem;
+                margin-left: auto;
+                margin-right: 1rem;
+                transition: .3s;
+            }
+        }
+    }
+}
+
+
+
+.news-grid {
+    display: grid;
+}
