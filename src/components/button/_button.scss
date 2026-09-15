@@ -1,14 +1,17 @@
-@use '../../style/variables' as var; 
+@use '../../style/variables' as var;
 
 .button {
     display: block;
     margin-inline: auto;
     padding-block: 1rem;
-    width: 80vw;
+    width: 100%;
     margin-block: 1rem;
     border-radius: 40px;
     border: 1px solid grey;
     background-color: transparent;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.05s ease;
 
@@ -21,7 +24,7 @@
         &:active {
             box-shadow: none; // Remove shadow on press
             transform: translateY(2px); // Optional: button presses down
-          }
+        }
 
-          }
+    }
 }

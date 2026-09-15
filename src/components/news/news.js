@@ -1,34 +1,28 @@
 import './_news.scss';
 
+// for the settings page to get all categories...
+export function getUniqueCategories(allArticles) {
+    const allCategories = allArticles.map(article => article.section);
+    return [...new Set(allCategories)]; // Return unique categories
+}
 
-export default function News(category, articles) {
-
+export default function News(categoryName, articleElements) {
     const newsElement = document.createElement("section")
     newsElement.classList.add("category")
 
+
     newsElement.innerHTML = `
-    
-  
-
-
-<details class="category__bar">
-<summary> <img src="src/img/newsify_logo.svg" alt="">${category} <img class="arrow" src="src/img/arrow.svg" alt=""></summary>
-
-<div class="category__bar-content">
-<!-- article loop code HER! -->
-${articles.map(function (article) {
-        return article.outerHTML
-    }).join("")
-
-        }
-
+<details class="category__detail">
+  <summary> <img class="category-icon" src="src/img/newsify_logo.svg" alt=""><span class="category-name">${categoryName}</span><img class="arrow" src="src/img/arrow.svg" alt=""></summary>
+    <div class="category__detail-content"></div>
 </details>
-</div>
-`
+`;
+
+    newsElement.querySelector('.category__detail-content').append(...articleElements)
     return newsElement;
 }
 
 
 
-// ---------article loop code--------
+
 

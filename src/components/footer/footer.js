@@ -5,25 +5,25 @@ export default function Footer() {
     const footerElement = document.createElement("footer")
     footerElement.classList.add("footer")
 
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-    footerElement.innerHTML = `
-   
-   <a href="home.html" class="footer__container">
-<img src="src/img/home.svg" alt="">
-<p>Home</p>
-</a>
-<a href="archive.html" class="footer__container">
-<img src="src/img/archive.svg" alt="">
-<p>Archive</p>
-</a>
-<a href="popular.html" class="footer__container">
-<img src="src/img/popular.svg" alt="">
-<p>Popular</p>
-</a>
-<a href="settings.html" class="footer__container">
-<img src="src/img/settings.svg" alt="">
-<p>Settings</p>
-</a>
-`
+    const links = [
+        { href: 'index.html', icon: 'home', label: 'Home' },
+        { href: 'archive.html', icon: 'archive', label: 'Archive' },
+        { href: 'popular.html', icon: 'popular', label: 'Popular' },
+        { href: 'settings.html', icon: 'settings', label: 'Settings' },
+    ];
+
+    footerElement.innerHTML = links.map(function (link) {
+        const isActive = currentPage === link.href;
+        const iconSrc = `src/img/${link.icon}${isActive ? '_visited' : ''}.svg`;
+
+        return `
+<a href="${link.href}" class="footer__container${isActive ? ' footer__container--active' : ''}">
+<img src="${iconSrc}" alt="">
+<p>${link.label}</p>
+</a>`;
+    }).join('');
+
     return footerElement;
 }

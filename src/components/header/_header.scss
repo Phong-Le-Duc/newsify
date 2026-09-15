@@ -3,9 +3,14 @@
 
 .header {
     display: flex;
-    
+    align-items: center;
+    margin-block: 3rem;
+    margin-inline: auto;
+    justify-content: center;
+    gap: 1rem;
+
     img {
-        width: 10rem;
-        height: 10rem;
+        width: 3rem;
+        height: 3rem;
     }
 }

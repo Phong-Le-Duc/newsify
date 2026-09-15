@@ -3,7 +3,10 @@
 
 
 body {
-   
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+
     h1,
     h2,
     h3 {
@@ -16,7 +19,26 @@ body {
 
 }
 
+#app {
+    max-width: var.$appMaxWidth;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    position: relative;
+}
+
 
 .grid {
     display: grid;
+}
+
+#news-section {
+    padding-bottom: 120px;
+    /* Adjust the padding to give space for the footer */
+}
+
+.no-saved {
+    text-align: center;
+    padding-block: 3rem;
+    color: var(--text-color);
+    opacity: 0.7;
 }

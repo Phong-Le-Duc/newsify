@@ -1,0 +1,31 @@
+@use '../../style/variables' as var;
+
+.searchbar {
+    margin-bottom: 2rem;
+
+    label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+    }
+
+    input {
+        width: 100%;
+        border: none;
+        border-radius: 12px;
+        background-color: #eeeeee;
+        padding: 0.9rem 1.25rem;
+        font-family: inherit;
+        font-size: 1rem;
+
+        &::placeholder {
+            color: #8a8a8a;
+        }
+
+        &:focus {
+            outline: 2px solid var.$buttonPrimaryBackgroundColor;
+        }
+    }
+}

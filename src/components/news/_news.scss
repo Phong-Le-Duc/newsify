@@ -1,30 +1,47 @@
+@use '../../style/variables' as var;
+
 .category {
     display: flex;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
-    padding: .5rem;
+    border-top: 1px solid var(--border-color);
+    // border-bottom: 1px solid grey;
+    padding-block: 1rem;
 
-    &__bar {
+
+    &__detail {
         width: 100%;
+
         &:open {
-           .category__bar-content{
-            margin-block: 2rem;
-            .article{
+            .category__bar-content {
                 margin-block: 2rem;
+
+                .article {
+                    margin-block: 2rem;
+                }
             }
-           }
+
             .arrow {
                 transform: rotate(90deg);
-              
+
             }
 
         }
+
         summary {
             display: flex;
             flex-direction: row;
+            gap: 1rem;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
 
             &::marker {
                 content: "";
+            }
+
+            .category-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+                flex-shrink: 0;
             }
 
             .arrow {
@@ -37,8 +54,29 @@
     }
 }
 
+.category-name {
+    font-family: var.$headerFont;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
 
 
 .news-grid {
     display: grid;
+}
+
+
+
+/* Add a class to specifically target settings page elements */
+#settings-section .category__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#settings-section .category__info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
