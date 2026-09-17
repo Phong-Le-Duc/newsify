@@ -4,12 +4,6 @@ import { initTheme } from './theme';
 
 initTheme();
 
-const fbButton = Button("Continue with Facebook");
-fbButton.id = "continue-fb";
-
-const googleButton = Button("Continue with Google");
-googleButton.id = "continue-google";
-
 const passwordButton = Button("Sign in with password", "button--green");
 passwordButton.id = "continue-password";
 
@@ -19,36 +13,30 @@ document.querySelector('#app').innerHTML = `
 <h1 class="login-newsify">Newsify</h1>
 <p class="login-welcome-text">Welcome! Let’s dive into your account!</p>
 
-
-${fbButton.outerHTML}
-${googleButton.outerHTML}
-
-<div class="divider"><span>or</span></div>
-
 ${passwordButton.outerHTML}
-
 
 <p class="no-account">Don’t have an account? <button id="sign-up">Sign up</button> </p>
 
 <dialog id="dialog">
  <div class="dialog-content">
-    <h2>Create username</h2>
-    <input type="text" id="signup-username" placeholder="Username...">
-    <h2>Create password</h2>
-    <input type="password" id="signup-password" placeholder="Password...">
-    <button id="submit">Submit</button>
-    <button id="close">Close</button>
+    <button id="close" class="dialog-close" aria-label="Close">&times;</button>
+    <h2 class="dialog-title">Create your account</h2>
+    <p class="dialog-subtitle">Join Newsify to save articles and personalize your feed.</p>
+
+    <label class="dialog-field">
+      <span>Username</span>
+      <input type="text" id="signup-username" placeholder="Username...">
+    </label>
+
+    <label class="dialog-field">
+      <span>Password</span>
+      <input type="password" id="signup-password" placeholder="Password...">
+    </label>
+
+    <button id="submit" class="button button--green">Create account</button>
  </div>
 </dialog>
 `;
-
-document.getElementById("continue-fb").addEventListener("click", function () {
-  window.location.href = "./index.html";
-});
-
-document.getElementById("continue-google").addEventListener("click", function () {
-  window.location.href = "./index.html";
-});
 
 document.getElementById("continue-password").addEventListener("click", function () {
   alert('No password created!')
@@ -56,19 +44,12 @@ document.getElementById("continue-password").addEventListener("click", function 
 });
 
 const signUpButton = document.querySelector('#sign-up');
-console.log(signUpButton);
-
 const dialog = document.querySelector('#dialog');
-console.log(dialog);
-
 const closeButton = document.querySelector('#close');
 
 // Open the dialog when the "Sign up" button is clicked
 signUpButton.addEventListener('click', function () {
-  console.log("Sign up button clicked!");
   dialog.showModal(); // Open dialog
-
-
 });
 
 // Close the dialog when the close button is clicked
