@@ -15,68 +15,77 @@ import { initTheme } from './theme';
 
 initTheme();
 
-// Ensure the data is being fetched correctly
-let allArticles = await fetchArticles(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${NYT_API_KEY}`);
-console.log('allArticles', allArticles); // Log the fetched articles to check the data
+try {
+    // Ensure the data is being fetched correctly
+    let allArticles = await fetchArticles(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${NYT_API_KEY}`);
+    console.log('allArticles', allArticles); // Log the fetched articles to check the data
 
-const allCategories = allArticles.map(article => article.section);
-const uniqueCategories = [...new Set(allCategories)];
+    const allCategories = allArticles.map(article => article.section);
+    const uniqueCategories = [...new Set(allCategories)];
 
-const enabledCategories = JSON.parse(localStorage.getItem('enabledCategories')) || uniqueCategories;
-console.log('enabledCategories', enabledCategories); // Log enabled categories
+    const enabledCategories = JSON.parse(localStorage.getItem('enabledCategories')) || uniqueCategories;
+    console.log('enabledCategories', enabledCategories); // Log enabled categories
 
-document.querySelector('#app').innerHTML = `
-${Header().outerHTML}
-${Searchbar().outerHTML}
-<section class="grid" id="news-section"></section>
-${Footer().outerHTML}
-`;
+    document.querySelector('#app').innerHTML = `
+    ${Header().outerHTML}
+    ${Searchbar().outerHTML}
+    <section class="grid" id="news-section"></section>
+    ${Footer().outerHTML}
+    `;
 
-const newsContainer = document.querySelector('#news-section');
+    const newsContainer = document.querySelector('#news-section');
 
-// Mapping enabled categories to generate article elements
-const categoryElements = enabledCategories.map(function (categoryName) {
-    const articlesInCategory = allArticles.filter(article => categoryName === article.section);
-    console.log('articlesInCategory', articlesInCategory); // Log articles by category
+    // Mapping enabled categories to generate article elements
+    const categoryElements = enabledCategories.map(function (categoryName) {
+        const articlesInCategory = allArticles.filter(article => categoryName === article.section);
+        console.log('articlesInCategory', articlesInCategory); // Log articles by category
 
-    // Safely map articles and check for multimedia
-    const articleElements = articlesInCategory.map(function (relevantArticle) {
-        if (!relevantArticle.multimedia || relevantArticle.multimedia.length === 0) {
-            console.warn('Missing multimedia:', relevantArticle);
-            return null; // Skip articles without multimedia
-        }
+        // Safely map articles and check for multimedia
+        const articleElements = articlesInCategory.map(function (relevantArticle) {
+            if (!relevantArticle.multimedia || relevantArticle.multimedia.length === 0) {
+                console.warn('Missing multimedia:', relevantArticle);
+                return null; // Skip articles without multimedia
+            }
 
-        return Article(
-            relevantArticle.multimedia[0].url,
-            relevantArticle.title,
-            relevantArticle.abstract,
-            relevantArticle.url
-        );
-    }).filter(Boolean); // Remove nulls
+            return Article(
+                relevantArticle.multimedia[0].url,
+                relevantArticle.title,
+                relevantArticle.abstract,
+                relevantArticle.url
+            );
+        }).filter(Boolean); // Remove nulls
 
-    return News(categoryName, articleElements); // Generate and return the News component
-});
-
-// Append category elements to the news container
-newsContainer.append(...categoryElements);
-
-// Wire up the searchbar to filter articles/categories by headline text
-const searchInput = document.querySelector('#search');
-if (searchInput) {
-    searchInput.addEventListener('input', function () {
-        const query = searchInput.value.trim().toLowerCase();
-
-        newsContainer.querySelectorAll('.category').forEach(function (categorySection) {
-            let visibleCount = 0;
-
-            categorySection.querySelectorAll('.article').forEach(function (articleElement) {
-                const headline = articleElement.querySelector('.article__textcontainer__headline');
-                const matches = !query || (headline && headline.textContent.toLowerCase().includes(query));
-                articleElement.style.display = matches ? '' : 'none';
-                if (matches) visibleCount++;
-            });
-
-            categorySection.style.display = visibleCount > 0 ? '' : 'none';
-        });
+        return News(categoryName, articleElements); // Generate and return the News component
     });
+
+    // Append category elements to the news container
+    newsContainer.append(...categoryElements);
+
+    // Wire up the searchbar to filter articles/categories by headline text
+    const searchInput = document.querySelector('#search');
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            const query = searchInput.value.trim().toLowerCase();
+
+            newsContainer.querySelectorAll('.category').forEach(function (categorySection) {
+                let visibleCount = 0;
+
+                categorySection.querySelectorAll('.article').forEach(function (articleElement) {
+                    const headline = articleElement.querySelector('.article__textcontainer__headline');
+                    const matches = !query || (headline && headline.textContent.toLowerCase().includes(query));
+                    articleElement.style.display = matches ? '' : 'none';
+                    if (matches) visibleCount++;
+                });
+
+                categorySection.style.display = visibleCount > 0 ? '' : 'none';
+            });
+        });
+    }
+} catch (error) {
+    console.error('Failed to load Newsify:', error);
+    document.querySelector('#app').innerHTML = `
+        ${Header().outerHTML}
+        <p class="load-error">Sorry, we couldn't load the news right now. Please try again later.</p>
+        ${Footer().outerHTML}
+    `;
 }

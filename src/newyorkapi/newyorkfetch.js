@@ -16,8 +16,16 @@ export async function fetchSections() {
 
 // FETCH ARTICLES
 export default async function fetchArticles(api_url) {
+    if (!NYT_API_KEY) {
+        throw new Error('Missing NYT API key. Set VITE_NYT_API_KEY in your environment (e.g. Netlify site environment variables).');
+    }
+
     const response = await fetch(api_url);
     const articles = await response.json();
+
+    if (!response.ok || !Array.isArray(articles.results)) {
+        throw new Error(articles.fault?.faultstring || articles.message || `Failed to fetch articles (status ${response.status})`);
+    }
 
     return articles.results;
 
