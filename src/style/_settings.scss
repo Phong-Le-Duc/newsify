@@ -81,3 +81,28 @@
     font-size: 1rem;
     cursor: pointer;
 }
+
+.logout-button {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    padding-block: 1rem;
+    border-radius: 40px;
+    border: 1px solid #d33;
+    background-color: transparent;
+    color: #d33;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.05s ease;
+
+    &:hover {
+        background-color: #d33;
+        color: white;
+    }
+
+    &:active {
+        transform: translateY(2px);
+    }
+}

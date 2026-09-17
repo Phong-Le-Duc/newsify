@@ -94,7 +94,7 @@ try {
     // Logout button
     const logoutButton = document.createElement('button');
     logoutButton.id = 'logout-button';
-    logoutButton.classList.add('button');
+    logoutButton.classList.add('logout-button');
     logoutButton.textContent = 'Log out';
 
     logoutButton.addEventListener('click', () => {
