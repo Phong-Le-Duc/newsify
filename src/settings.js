@@ -43,7 +43,7 @@ categories.forEach(category => {
 
     // Logo
     const logo = document.createElement('img');
-    logo.src = 'src/img/newsify_logo.svg'; // Add the path to your logo here
+    logo.src = '/img/newsify_logo.svg'; // Add the path to your logo here
     logo.alt = 'Logo';
     logo.classList.add('category-logo'); // Class for the logo
 

@@ -13,7 +13,7 @@ export default function News(categoryName, articleElements) {
 
     newsElement.innerHTML = `
 <details class="category__detail">
-  <summary> <img class="category-icon" src="src/img/newsify_logo.svg" alt=""><span class="category-name">${categoryName}</span><img class="arrow" src="src/img/arrow.svg" alt=""></summary>
+  <summary> <img class="category-icon" src="/img/newsify_logo.svg" alt=""><span class="category-name">${categoryName}</span><img class="arrow" src="/img/arrow.svg" alt=""></summary>
     <div class="category__detail-content"></div>
 </details>
 `;

@@ -9,7 +9,7 @@ export default function splash() {
     splashElement.className = "splash";
 
     splashElement.innerHTML = `
-        <img class="splash-logo-symbol" src="src/img/newsify_logo.svg" alt="">
+        <img class="splash-logo-symbol" src="/img/newsify_logo.svg" alt="">
         <h1 class="splash-logo-name">Newsify</h1>
     `;
     return splashElement;
@@ -22,21 +22,21 @@ function showOnboarding() {
     onboardingElement.innerHTML = `
         <section class="onboarding-carousel">
             <div class="onboarding-carousel__slide">
-                <img class="onboarding-carousel__slide__image" src="src/img/Onboarding_1.svg" alt="onboard 1">
+                <img class="onboarding-carousel__slide__image" src="/img/Onboarding_1.svg" alt="onboard 1">
                 <div class="onboarding-carousel__slide__text">
                     <h1>Stay Connected,<br> Everywhere, Anytime</h1>
                     <p>Welcome to Newsify, your ultimate destination for breaking news, exclusive stories, and tailored content.</p>
                 </div>
             </div>
             <div class="onboarding-carousel__slide">
-                <img class="onboarding-carousel__slide__image" src="src/img/Onboarding_2.svg" alt="onboard 2">
+                <img class="onboarding-carousel__slide__image" src="/img/Onboarding_2.svg" alt="onboard 2">
                 <div class="onboarding-carousel__slide__text">
                     <h1>Become a Savvy <br> Global Citizen.</h1>
                     <p>Discover tailored news that aligns with your interests and preferences. Your personalized news journey awaits!</p>
                 </div>
             </div>
             <div class="onboarding-carousel__slide">
-                <img class="onboarding-carousel__slide__image" src="src/img/Onboarding_3.svg" alt="onboard 3">
+                <img class="onboarding-carousel__slide__image" src="/img/Onboarding_3.svg" alt="onboard 3">
                 <div class="onboarding-carousel__slide__text">
                     <h1>Enhance your News <br> Journey Now!</h1>
                     <p>Be part of our dynamic community and contribute your insights and participate in enriching conversations.</p>

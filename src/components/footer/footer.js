@@ -16,7 +16,7 @@ export default function Footer() {
 
     footerElement.innerHTML = links.map(function (link) {
         const isActive = currentPage === link.href;
-        const iconSrc = `src/img/${link.icon}${isActive ? '_visited' : ''}.svg`;
+        const iconSrc = `/img/${link.icon}${isActive ? '_visited' : ''}.svg`;
 
         return `
 <a href="${link.href}" class="footer__container${isActive ? ' footer__container--active' : ''}">

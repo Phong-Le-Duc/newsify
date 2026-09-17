@@ -7,7 +7,7 @@ export default function Header() {
 
 
     headerElement.innerHTML = `
-<img src="src/img/newsify_logo.svg" alt="">
+<img src="/img/newsify_logo.svg" alt="">
 <h1>Newsify</h1>
 `
     return headerElement;

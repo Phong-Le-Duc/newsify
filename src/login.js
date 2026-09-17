@@ -15,7 +15,7 @@ passwordButton.id = "continue-password";
 
 
 document.querySelector('#app').innerHTML = `
-<img class="login-image" src="src/img/newsify_logo.svg" alt="">
+<img class="login-image" src="/img/newsify_logo.svg" alt="">
 <h1 class="login-newsify">Newsify</h1>
 <p class="login-welcome-text">Welcome! Let’s dive into your account!</p>
 
