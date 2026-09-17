@@ -14,3 +14,14 @@
         height: 3rem;
     }
 }
+
+.header__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.header__greeting {
+    font-size: 0.9rem;
+    opacity: 0.75;
+}

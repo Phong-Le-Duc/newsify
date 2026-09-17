@@ -3,6 +3,11 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Article from './components/article/article';
 import { initTheme } from './theme';
+import { getCurrentUser } from './auth';
+
+if (!getCurrentUser()) {
+    window.location.href = 'login.html';
+}
 
 initTheme();
 

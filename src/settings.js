@@ -4,6 +4,11 @@ import Footer from './components/footer/footer';
 import { getUniqueCategories } from './components/news/news'; // Importer categories
 import fetchArticles, { NYT_API_KEY } from './newyorkapi/newyorkfetch';
 import { initTheme, getTheme, toggleTheme } from './theme';
+import { getCurrentUser, logOut } from './auth';
+
+if (!getCurrentUser()) {
+    window.location.href = 'login.html';
+}
 
 initTheme();
 
@@ -85,6 +90,19 @@ try {
 
     // Append dark mode button at the bottom of settings-section
     settingsSection.appendChild(darkModeButton);
+
+    // Logout button
+    const logoutButton = document.createElement('button');
+    logoutButton.id = 'logout-button';
+    logoutButton.classList.add('button');
+    logoutButton.textContent = 'Log out';
+
+    logoutButton.addEventListener('click', () => {
+        logOut();
+        window.location.href = 'login.html';
+    });
+
+    settingsSection.appendChild(logoutButton);
 } catch (error) {
     console.error('Failed to load settings:', error);
     document.querySelector('#app').innerHTML = `

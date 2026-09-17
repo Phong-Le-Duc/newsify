@@ -12,6 +12,11 @@ import News from './components/news/news';
 import Article from './components/article/article';
 import fetchArticles, { NYT_API_KEY } from './newyorkapi/newyorkfetch';
 import { initTheme } from './theme';
+import { getCurrentUser } from './auth';
+
+if (!getCurrentUser()) {
+    window.location.href = 'login.html';
+}
 
 initTheme();
 
